@@ -125,16 +125,16 @@ const Employees = () => {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full text-sm">
               <thead className="bg-gray-50 dark:bg-gray-800">
                 <tr>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Mã NV</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Họ tên</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Email</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Vị trí</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Cửa hàng</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Level</th>
-                  <th className="text-left p-4 font-semibold text-gray-700 dark:text-gray-300">Hành động</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Mã NV</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Họ tên</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Email</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Vị trí</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Cửa hàng</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Level</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Hành động</th>
                 </tr>
               </thead>
               <tbody>
@@ -147,18 +147,18 @@ const Employees = () => {
                 ) : (
                   filteredEmployees.map(emp => (
                     <tr key={emp._id} className="border-t border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                      <td className="p-4 text-gray-700 dark:text-gray-300">{emp.employeeId}</td>
-                      <td className="p-4 font-medium text-gray-900 dark:text-white">{emp.name}</td>
-                      <td className="p-4 text-gray-700 dark:text-gray-300">{emp.email}</td>
-                      <td className="p-4">
-                        <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-sm">
+                      <td className="p-3 text-gray-700 dark:text-gray-300">{emp.employeeId}</td>
+                      <td className="p-3 font-medium text-gray-900 dark:text-white">{emp.name}</td>
+                      <td className="p-3 text-gray-700 dark:text-gray-300">{emp.email}</td>
+                      <td className="p-3">
+                        <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
                           {emp.position}
                         </span>
                       </td>
-                      <td className="p-4 text-gray-700 dark:text-gray-300">
+                      <td className="p-3 text-gray-700 dark:text-gray-300">
                         {emp.store ? `${emp.store.code} ${emp.store.name}` : '-'}
                       </td>
-                      <td className="p-4">
+                      <td className="p-3">
                         {emp.currentLevel ? (
                           <span className={`px-2 py-1 rounded text-xs font-semibold ${
                             emp.currentLevel === 4 ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
@@ -169,45 +169,44 @@ const Employees = () => {
                             Level {emp.currentLevel}
                           </span>
                         ) : (
-                          <span className="text-gray-400 text-sm">Chưa đánh giá</span>
+                          <span className="text-gray-400 text-xs">Chưa đánh giá</span>
                         )}
                       </td>
-                      <td className="p-4">
-                        <div className="flex gap-2">
+                      <td className="p-3">
+                        <div className="flex items-center gap-2">
                           <Link
                             to={`/employees/${emp._id}`}
-                            className="text-primary hover:underline text-sm font-medium"
+                            className="text-primary hover:text-primary/70 transition-colors"
+                            title="Xem chi tiết"
                           >
-                            Chi tiết
+                            <span className="material-symbols-outlined text-lg">visibility</span>
                           </Link>
                           {(isAdmin || isManager) && (
                             <>
-                              <span className="text-gray-300">|</span>
                               <Link
                                 to={`/employees/${emp._id}/edit`}
-                                className="text-blue-600 hover:underline text-sm font-medium"
+                                className="text-blue-600 hover:text-blue-500 transition-colors"
+                                title="Chỉnh sửa"
                               >
-                                Sửa
+                                <span className="material-symbols-outlined text-lg">edit</span>
                               </Link>
-                              <span className="text-gray-300">|</span>
                               <Link
                                 to={`/assessments?employee=${emp._id}`}
-                                className="text-green-600 hover:underline text-sm font-medium"
+                                className="text-green-600 hover:text-green-500 transition-colors"
+                                title="Đánh giá"
                               >
-                                Đánh giá
+                                <span className="material-symbols-outlined text-lg">assignment</span>
                               </Link>
                             </>
                           )}
                           {isAdmin && (
-                            <>
-                              <span className="text-gray-300">|</span>
-                              <button
-                                onClick={() => handleDelete(emp._id)}
-                                className="text-red-600 hover:underline text-sm font-medium"
-                              >
-                                Xóa
-                              </button>
-                            </>
+                            <button
+                              onClick={() => handleDelete(emp._id)}
+                              className="text-red-600 hover:text-red-500 transition-colors"
+                              title="Xóa"
+                            >
+                              <span className="material-symbols-outlined text-lg">delete</span>
+                            </button>
                           )}
                         </div>
                       </td>
