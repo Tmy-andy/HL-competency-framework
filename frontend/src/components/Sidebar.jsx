@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   const { user, logout } = useAuth();
 
@@ -24,8 +24,16 @@ const Sidebar = () => {
     window.location.href = '/login';
   };
 
+  const handleNavClick = () => {
+    if (onClose) onClose();
+  };
+
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col">
+    <div 
+      className={`fixed left-0 top-0 h-screen w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col z-50 transition-transform duration-300 ease-in-out ${
+        isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      }`}
+    >
       {/* Logo */}
       <div className="p-6 border-b border-border-light dark:border-border-dark">
         <h1 className="text-2xl font-bold text-primary">Competency</h1>
@@ -41,6 +49,7 @@ const Sidebar = () => {
               <li key={item.path}>
                 <Link
                   to={item.path}
+                  onClick={handleNavClick}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     isActive
                       ? 'bg-primary/10 text-primary dark:bg-primary/30 dark:text-white font-semibold'
@@ -60,6 +69,7 @@ const Sidebar = () => {
       <div className="p-4 border-t border-border-light dark:border-border-dark">
         <Link
           to="/profile"
+          onClick={handleNavClick}
           className={`flex items-center gap-3 mb-4 p-3 rounded-lg transition-colors ${
             location.pathname === '/profile'
               ? 'bg-primary/10 text-primary dark:bg-primary/30'

@@ -136,22 +136,22 @@ const Stores = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6 lg:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-light dark:text-text-dark mb-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-text-light dark:text-text-dark mb-2">
             Quản Lý Cửa Hàng
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
             Quản lý thông tin cửa hàng, mã cửa hàng, khu vực và nhân viên
           </p>
         </div>
         {isAdmin && (
           <button
             onClick={handleShowAddModal}
-            className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-3 lg:py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
           >
             <span className="material-symbols-outlined">add_circle</span>
-            Thêm cửa hàng
+            <span>Thêm cửa hàng</span>
           </button>
         )}
       </div>
@@ -175,7 +175,7 @@ const Stores = () => {
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Quản Lý</th>
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Số NV</th>
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Trạng Thái</th>
-                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Hành Động</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase min-w-[180px] lg:w-auto">Hành Động</th>
                 </tr>
               </thead>
               <tbody>
@@ -207,23 +207,23 @@ const Stores = () => {
                           </span>
                         )}
                       </td>
-                      <td className="p-3">
-                        <div className="flex items-center gap-2">
+                      <td className="p-3 min-w-[180px] lg:w-auto">
+                        <div className="flex flex-wrap items-center gap-2 lg:gap-2">
                           {isAdmin && (
                             <>
                               <button
                                 onClick={() => handleShowEditModal(store)}
-                                className="text-blue-600 hover:text-blue-500"
+                                className="flex items-center justify-center p-2.5 lg:p-1.5 text-blue-600 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                                 title="Sửa"
                               >
-                                <span className="material-symbols-outlined text-lg">edit</span>
+                                <span className="material-symbols-outlined text-xl lg:text-lg">edit</span>
                               </button>
                               <button
                                 onClick={() => handleDelete(store)}
-                                className="text-red-600 hover:text-red-500"
+                                className="flex items-center justify-center p-2.5 lg:p-1.5 text-red-600 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
                                 title="Xóa"
                               >
-                                <span className="material-symbols-outlined text-lg">delete</span>
+                                <span className="material-symbols-outlined text-xl lg:text-lg">delete</span>
                               </button>
                             </>
                           )}

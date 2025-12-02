@@ -243,18 +243,18 @@ const Reports = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="flex flex-wrap justify-between items-start gap-4 mb-8">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-6 lg:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-light dark:text-text-dark mb-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-text-light dark:text-text-dark mb-2">
             Báo Cáo & Phân Tích
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
             Xem và phân tích dữ liệu đánh giá năng lực nhân viên
           </p>
         </div>
         <button
           onClick={handleExportReport}
-          className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-3 lg:py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         >
           <span className="material-symbols-outlined">download</span>
           <span>Xuất báo cáo</span>
@@ -263,9 +263,9 @@ const Reports = () => {
       </div>
 
       {/* Filters */}
-      <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 border border-border-light dark:border-border-dark mb-6">
+      <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-4 border border-border-light dark:border-border-dark mb-4 lg:mb-6">
         <div className="flex items-center justify-between pb-3">
-          <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+          <h3 className="text-sm lg:text-base font-semibold text-gray-900 dark:text-gray-100">
             Bộ lọc báo cáo
           </h3>
           {(filters.store || filters.position || filters.dateFrom || filters.dateTo) && (
@@ -274,12 +274,12 @@ const Reports = () => {
             </span>
           )}
         </div>
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap items-center gap-2 lg:gap-3">
           <select
             name="store"
             value={filters.store}
             onChange={handleFilterChange}
-            className="h-9 px-3 pr-8 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
+            className="h-10 lg:h-9 px-3 pr-8 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả cửa hàng</option>
             {stores.map(store => (
@@ -291,7 +291,7 @@ const Reports = () => {
             name="position"
             value={filters.position}
             onChange={handleFilterChange}
-            className="h-9 px-3 pr-8 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
+            className="h-10 lg:h-9 px-3 pr-8 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả vị trí</option>
             <option value="AP">AP (Assistant Manager)</option>
@@ -306,7 +306,7 @@ const Reports = () => {
             name="dateFrom"
             value={filters.dateFrom}
             onChange={handleFilterChange}
-            className="h-9 px-3 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
+            className="h-10 lg:h-9 px-3 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
             placeholder="Từ ngày"
           />
 
@@ -315,13 +315,13 @@ const Reports = () => {
             name="dateTo"
             value={filters.dateTo}
             onChange={handleFilterChange}
-            className="h-9 px-3 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
+            className="h-10 lg:h-9 px-3 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
             placeholder="Đến ngày"
           />
 
           <button
             onClick={handleApplyFilters}
-            className="h-9 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary/90 flex items-center gap-2"
+            className="h-10 lg:h-9 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary/90 flex items-center justify-center gap-2"
           >
             <span className="material-symbols-outlined text-lg">filter_alt</span>
             Áp dụng
@@ -329,7 +329,7 @@ const Reports = () => {
 
           <button
             onClick={loadData}
-            className="h-9 px-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center gap-2"
+            className="h-10 lg:h-9 px-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center justify-center gap-2"
           >
             <span className="material-symbols-outlined text-lg">refresh</span>
             Reset
@@ -338,42 +338,42 @@ const Reports = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark">
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mb-4 lg:mb-6">
+        <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 border border-border-light dark:border-border-dark">
+          <p className="text-gray-600 dark:text-gray-400 text-xs lg:text-sm font-medium mb-2">
             Tổng nhân viên
           </p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <p className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-50">
             {stats.totalEmployees}
           </p>
         </div>
 
-        <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark">
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">
+        <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 border border-border-light dark:border-border-dark">
+          <p className="text-gray-600 dark:text-gray-400 text-xs lg:text-sm font-medium mb-2">
             Nhân viên đã đánh giá
           </p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <p className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-50">
             {stats.assessedEmployees}{' '}
-            <span className="text-lg text-gray-500 dark:text-gray-400 font-medium">
+            <span className="text-sm lg:text-lg text-gray-500 dark:text-gray-400 font-medium">
               ({stats.assessmentRate}%)
             </span>
           </p>
         </div>
 
-        <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark">
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">
+        <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 border border-border-light dark:border-border-dark">
+          <p className="text-gray-600 dark:text-gray-400 text-xs lg:text-sm font-medium mb-2">
             Điểm trung bình
           </p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <p className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-50">
             {stats.averageScore} / 4.0
           </p>
         </div>
 
-        <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark">
-          <p className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">
+        <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 border border-border-light dark:border-border-dark">
+          <p className="text-gray-600 dark:text-gray-400 text-xs lg:text-sm font-medium mb-2">
             Tổng số cửa hàng
           </p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <p className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-50">
             {stores.length}
           </p>
         </div>

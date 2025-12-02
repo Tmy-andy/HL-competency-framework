@@ -59,41 +59,41 @@ const Employees = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6 lg:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-light dark:text-text-dark mb-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-text-light dark:text-text-dark mb-2">
             Quản lý nhân viên
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
             Danh sách và thông tin nhân viên trong hệ thống
           </p>
         </div>
         {(isAdmin || isManager) && (
           <Link
             to="/employees/new"
-            className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-3 lg:py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
           >
             <span className="material-symbols-outlined">add</span>
-            Thêm nhân viên
+            <span>Thêm nhân viên</span>
           </Link>
         )}
       </div>
 
       {/* Filters */}
-      <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 mb-6 border border-border-light dark:border-border-dark">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 mb-4 lg:mb-6 border border-border-light dark:border-border-dark">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4">
           <input
             type="text"
             placeholder="Tìm kiếm tên, mã nhân viên..."
             value={filters.search}
             onChange={(e) => setFilters({...filters, search: e.target.value})}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
+            className="px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
           />
           
           <select
             value={filters.store}
             onChange={(e) => setFilters({...filters, store: e.target.value})}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
+            className="px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả cửa hàng</option>
             {stores.map(store => (
@@ -104,7 +104,7 @@ const Employees = () => {
           <select
             value={filters.position}
             onChange={(e) => setFilters({...filters, position: e.target.value})}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
+            className="px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả vị trí</option>
             <option value="AP">AP (Assistant Manager)</option>
@@ -134,7 +134,7 @@ const Employees = () => {
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Vị trí</th>
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Cửa hàng</th>
                   <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Level</th>
-                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase">Hành động</th>
+                  <th className="text-left p-3 font-semibold text-gray-700 dark:text-gray-300 text-xs uppercase min-w-[200px] lg:w-auto">Hành động</th>
                 </tr>
               </thead>
               <tbody>
@@ -172,40 +172,40 @@ const Employees = () => {
                           <span className="text-gray-400 text-xs">Chưa đánh giá</span>
                         )}
                       </td>
-                      <td className="p-3">
-                        <div className="flex items-center gap-2">
+                      <td className="p-3 min-w-[200px] lg:w-auto">
+                        <div className="flex flex-wrap items-center gap-1 lg:gap-2">
                           <Link
                             to={`/employees/${emp._id}`}
-                            className="text-primary hover:text-primary/70 transition-colors"
+                            className="flex items-center justify-center p-2.5 lg:p-1.5 text-primary hover:text-primary/70 hover:bg-primary/10 rounded-lg transition-colors"
                             title="Xem chi tiết"
                           >
-                            <span className="material-symbols-outlined text-lg">visibility</span>
+                            <span className="material-symbols-outlined text-xl lg:text-lg">visibility</span>
                           </Link>
                           {(isAdmin || isManager) && (
                             <>
                               <Link
                                 to={`/employees/${emp._id}/edit`}
-                                className="text-blue-600 hover:text-blue-500 transition-colors"
+                                className="flex items-center justify-center p-2.5 lg:p-1.5 text-blue-600 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                                 title="Chỉnh sửa"
                               >
-                                <span className="material-symbols-outlined text-lg">edit</span>
+                                <span className="material-symbols-outlined text-xl lg:text-lg">edit</span>
                               </Link>
                               <Link
                                 to={`/assessments?employee=${emp._id}`}
-                                className="text-green-600 hover:text-green-500 transition-colors"
+                                className="flex items-center justify-center p-2.5 lg:p-1.5 text-green-600 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-colors"
                                 title="Đánh giá"
                               >
-                                <span className="material-symbols-outlined text-lg">assignment</span>
+                                <span className="material-symbols-outlined text-xl lg:text-lg">assignment</span>
                               </Link>
                             </>
                           )}
                           {isAdmin && (
                             <button
                               onClick={() => handleDelete(emp._id)}
-                              className="text-red-600 hover:text-red-500 transition-colors"
+                              className="flex items-center justify-center p-2.5 lg:p-1.5 text-red-600 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
                               title="Xóa"
                             >
-                              <span className="material-symbols-outlined text-lg">delete</span>
+                              <span className="material-symbols-outlined text-xl lg:text-lg">delete</span>
                             </button>
                           )}
                         </div>

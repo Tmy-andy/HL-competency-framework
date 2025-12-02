@@ -153,31 +153,31 @@ const Competencies = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6 lg:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-light dark:text-text-dark mb-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-text-light dark:text-text-dark mb-2">
             Quản lý năng lực
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
             Danh sách 36 năng lực (competencies) cho vị trí Barista
           </p>
         </div>
         {(isAdmin || isManager) && (
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-3 lg:py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
           >
             <span className="material-symbols-outlined">add_circle</span>
-            Thêm Năng Lực Mới
+            <span>Thêm Năng Lực Mới</span>
           </button>
         )}
       </div>
 
       {/* Filters */}
-      <div className="bg-card-light dark:bg-card-dark rounded-xl p-6 mb-6 border border-border-light dark:border-border-dark">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 mb-4 lg:mb-6 border border-border-light dark:border-border-dark">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Tìm kiếm
             </label>
             <input
@@ -185,18 +185,18 @@ const Competencies = () => {
               placeholder="Tìm theo tên hoặc mô tả..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
+              className="w-full px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Lọc theo danh mục
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
+              className="w-full px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
             >
               <option value="">Tất cả danh mục</option>
               {categories.map(cat => (
@@ -208,22 +208,22 @@ const Competencies = () => {
       </div>
 
       {/* Statistics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Tổng số năng lực</p>
-          <p className="text-2xl font-bold text-primary">{competencies.length}</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4 mb-4 lg:mb-6">
+        <div className="bg-card-light dark:bg-card-dark rounded-lg p-3 lg:p-4 border border-border-light dark:border-border-dark">
+          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mb-1">Tổng số năng lực</p>
+          <p className="text-xl lg:text-2xl font-bold text-primary">{competencies.length}</p>
         </div>
-        <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Danh mục</p>
-          <p className="text-2xl font-bold text-blue-600">{categories.length}</p>
+        <div className="bg-card-light dark:bg-card-dark rounded-lg p-3 lg:p-4 border border-border-light dark:border-border-dark">
+          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mb-1">Danh mục</p>
+          <p className="text-xl lg:text-2xl font-bold text-blue-600">{categories.length}</p>
         </div>
-        <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Đang hiển thị</p>
-          <p className="text-2xl font-bold text-green-600">{filteredCompetencies.length}</p>
+        <div className="bg-card-light dark:bg-card-dark rounded-lg p-3 lg:p-4 border border-border-light dark:border-border-dark">
+          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mb-1">Đang hiển thị</p>
+          <p className="text-xl lg:text-2xl font-bold text-green-600">{filteredCompetencies.length}</p>
         </div>
-        <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Cấp độ</p>
-          <p className="text-2xl font-bold text-purple-600">4 Levels</p>
+        <div className="bg-card-light dark:bg-card-dark rounded-lg p-3 lg:p-4 border border-border-light dark:border-border-dark">
+          <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mb-1">Cấp độ</p>
+          <p className="text-xl lg:text-2xl font-bold text-purple-600">4 Levels</p>
         </div>
       </div>
 
@@ -245,54 +245,54 @@ const Competencies = () => {
           filteredCompetencies.map((comp, index) => (
             <div
               key={comp._id}
-              className="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark hover:shadow-lg transition-shadow"
+              className="bg-card-light dark:bg-card-dark rounded-xl p-4 lg:p-6 border border-border-light dark:border-border-dark hover:shadow-lg transition-shadow"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
+              <div className="flex flex-col lg:flex-row items-start justify-between gap-4">
+                <div className="flex-1 w-full">
                   <div className="flex items-start gap-3 mb-3">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-semibold text-sm">
+                    <span className="flex-shrink-0 w-7 h-7 lg:w-8 lg:h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-semibold text-xs lg:text-sm">
                       {index + 1}
                     </span>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-2">
                         {comp.nameVi}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mb-3">
                         {comp.definition}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                        <span className="inline-block px-2.5 lg:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                           {comp.category}
                         </span>
-                        <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs">
+                        <span className="inline-block px-2.5 lg:px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs">
                           ID: {comp.id}
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 ml-4">
+                <div className="flex items-center gap-2 w-full lg:w-auto lg:ml-4">
                   {(isAdmin || isManager) && (
                     <>
                       <button
                         onClick={() => openEditModal(comp)}
-                        className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                        className="flex-1 lg:flex-none p-2.5 lg:p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                         title="Chỉnh sửa"
                       >
-                        <span className="material-symbols-outlined text-lg">edit</span>
+                        <span className="material-symbols-outlined text-xl lg:text-lg">edit</span>
                       </button>
                       <button
                         onClick={() => handleDelete(comp)}
-                        className="p-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                        className="flex-1 lg:flex-none p-2.5 lg:p-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
                         title="Xóa"
                       >
-                        <span className="material-symbols-outlined text-lg">delete</span>
+                        <span className="material-symbols-outlined text-xl lg:text-lg">delete</span>
                       </button>
                     </>
                   )}
                   <button
                     onClick={() => setExpandedId(expandedId === comp._id ? null : comp._id)}
-                    className="flex items-center gap-1 text-primary hover:underline text-sm font-medium"
+                    className="flex-1 lg:flex-none flex items-center justify-center gap-1 p-2.5 lg:p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors text-xs lg:text-sm font-medium"
                   >
                     <span>{expandedId === comp._id ? 'Thu gọn' : 'Xem chi tiết'}</span>
                     <span className="material-symbols-outlined text-lg">
