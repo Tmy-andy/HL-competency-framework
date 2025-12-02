@@ -16,8 +16,9 @@ const app = express();
 // CORS configuration
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-app-name.netlify.app', // ← Đổi thành URL Netlify của bạn
-];
+  'https://hl-competency-framework.netlify.app',
+  process.env.FRONTEND_URL // Thêm từ environment variable
+].filter(Boolean); // Remove undefined values
 
 app.use(cors({
   origin: function(origin, callback) {
