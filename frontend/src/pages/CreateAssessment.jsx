@@ -19,6 +19,17 @@ const CreateAssessment = () => {
     notes: ''
   });
 
+  // Function to get color for each category
+  const getCategoryColor = (category) => {
+    const colors = {
+      'Technical / Operational': 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+      'Behavioral/ Performance competencies': 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+      'Hygiene & Bar Standards': 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+      'Leadership & Personal Development/ Other Skills': 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
+    };
+    return colors[category] || 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300';
+  };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -161,15 +172,15 @@ const CreateAssessment = () => {
               return (
                 <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-0">
                   <div className="mb-3">
+                    <span className={`inline-block mt-2 px-2 py-1 text-xs rounded mb-3 ${getCategoryColor(comp.category)}`}>
+                      {comp.category}
+                    </span>
                     <h3 className="font-medium text-gray-900 dark:text-white mb-1">
                       {index + 1}. {comp.nameVi}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       {comp.definition}
                     </p>
-                    <span className="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary text-xs rounded">
-                      {comp.category}
-                    </span>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -182,10 +193,10 @@ const CreateAssessment = () => {
                         onChange={(e) => handleRatingChange(index, 'ratedLevel', e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
                       >
-                        <option value="Critical">Critical - Level 1 (Phụ thuộc giám sát)</option>
-                        <option value="Low">Low - Level 2 (Độc lập đóng góp)</option>
-                        <option value="Medium">Medium - Level 3 (Qua người khác)</option>
-                        <option value="High">High - Level 4 (Chiến lược)</option>
+                        <option value="Critical">Level 1</option>
+                        <option value="Low">Level 2</option>
+                        <option value="Medium">Level 3</option>
+                        <option value="High">Level 4</option>
                       </select>
                     </div>
                     

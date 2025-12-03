@@ -139,28 +139,28 @@ const Dashboard = () => {
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-[#36B37E]"></div>
               <div className="flex w-32 justify-between">
-                <span className="text-sm text-gray-700 dark:text-gray-300">High</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">Level 4</span>
                 <span className="text-sm font-semibold">{percentages.HIGH}%</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-[#00B8D9]"></div>
               <div className="flex w-32 justify-between">
-                <span className="text-sm text-gray-700 dark:text-gray-300">Medium</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">Level 3</span>
                 <span className="text-sm font-semibold">{percentages.MEDIUM}%</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-[#FFAB00]"></div>
               <div className="flex w-32 justify-between">
-                <span className="text-sm text-gray-700 dark:text-gray-300">Low</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">Level 2</span>
                 <span className="text-sm font-semibold">{percentages.LOW}%</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-[#DE350B]"></div>
               <div className="flex w-32 justify-between">
-                <span className="text-sm text-gray-700 dark:text-gray-300">Critical</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">Level 1</span>
                 <span className="text-sm font-semibold">{percentages.CRITICAL}%</span>
               </div>
             </div>

@@ -304,9 +304,8 @@ const EmployeeDetail = () => {
                 </div>
                 <div className="w-full bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
                   <p className="text-center text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Mức độ:{' '}
                     <span className="font-bold text-blue-600 dark:text-blue-400">
-                      {employee.currentLevel ? `${getLevelLabel(employee.currentLevel)} (Level ${employee.currentLevel})` : 'Chưa đánh giá'}
+                      {employee.currentLevel ? `Level ${employee.currentLevel}` : 'Chưa đánh giá'}
                     </span>
                   </p>
                   {latestAssessment && (
@@ -357,7 +356,7 @@ const EmployeeDetail = () => {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                       <tr>
                         <th className="px-6 py-3">Năng Lực</th>
-                        <th className="px-6 py-3">Cấp độ</th>
+                        <th className="px-6 py-3">Level</th>
                         <th className="px-6 py-3">Ghi chú/Nhận xét</th>
                       </tr>
                     </thead>
@@ -373,7 +372,7 @@ const EmployeeDetail = () => {
                             </td>
                             <td className="px-6 py-4">
                               <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${getLevelColor(rating.levelNumber)}`}>
-                                Level {rating.levelNumber} - {rating.ratedLevel}
+                                Level {rating.levelNumber}
                               </span>
                             </td>
                             <td className="px-6 py-4 text-gray-500 dark:text-gray-400">

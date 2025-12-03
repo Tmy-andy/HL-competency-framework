@@ -176,7 +176,7 @@ const EmployeeDashboard = () => {
             {/* Current Level Card */}
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-xl p-6 border border-primary/20">
               <div className="text-center">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Cấp độ hiện tại</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Level hiện tại</p>
                 {employee.currentLevel ? (
                   <>
                     <div className="relative w-32 h-32 mx-auto mb-4">
