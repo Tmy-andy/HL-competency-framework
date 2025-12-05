@@ -407,7 +407,7 @@ const Reports = () => {
                 <div key={level}>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Level {level} - {labels[level]}
+                      Level {level}
                     </span>
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       {count} ({percentage}%)
