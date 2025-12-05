@@ -189,16 +189,16 @@ const Reports = () => {
     if (!level) return <span className="text-gray-400 text-sm">Chưa đánh giá</span>;
     
     const configs = {
-      1: { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-800 dark:text-red-400', label: 'Mới bắt đầu' },
-      2: { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-800 dark:text-yellow-400', label: 'Đang phát triển' },
-      3: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-800 dark:text-blue-400', label: 'Thành thạo' },
-      4: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-800 dark:text-green-400', label: 'Chuyên gia' }
+      1: { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-800 dark:text-red-400'},
+      2: { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-800 dark:text-yellow-400'},
+      3: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-800 dark:text-blue-400'},
+      4: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-800 dark:text-green-400'}
     };
 
     const config = configs[level] || configs[1];
     return (
       <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${config.bg} ${config.text}`}>
-        Level {level} - {config.label}
+        Level {level}
       </span>
     );
   };
