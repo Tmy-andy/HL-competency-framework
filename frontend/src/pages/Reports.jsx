@@ -297,6 +297,7 @@ const Reports = () => {
             <option value="AP">AP (Assistant Manager)</option>
             <option value="B">Barista</option>
             <option value="MB">Master Barista</option>
+            <option value="MB Leader">MB Leader</option>
             <option value="SL">Server Leader</option>
             <option value="Crew Leader">Crew Leader</option>
           </select>

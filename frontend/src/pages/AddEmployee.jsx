@@ -238,6 +238,7 @@ const AddEmployee = () => {
                   <option value="AP">AP (Assistant Manager)</option>
                   <option value="B">B (Barista)</option>
                   <option value="MB">MB (Master Barista)</option>
+                  <option value="MB Leader">MB Leader</option>
                   <option value="SL">SL (Server Leader)</option>
                   <option value="Crew Leader">Crew Leader</option>
                 </select>
