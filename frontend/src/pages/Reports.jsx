@@ -294,7 +294,7 @@ const Reports = () => {
             className="h-10 lg:h-9 px-3 pr-8 rounded-lg bg-gray-100 dark:bg-gray-800 border-0 text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả vị trí</option>
-            <option value="AP">AP (Assistant Manager)</option>
+            <option value="AP">AP (Apprentice)</option>
             <option value="B">Barista</option>
             <option value="MB">Master Barista</option>
             <option value="MB Leader">MB Leader</option>

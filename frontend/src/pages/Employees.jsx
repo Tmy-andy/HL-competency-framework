@@ -107,7 +107,7 @@ const Employees = () => {
             className="px-3 lg:px-4 py-2.5 lg:py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary"
           >
             <option value="">Tất cả vị trí</option>
-            <option value="AP">AP (Assistant Manager)</option>
+            <option value="AP">AP (Apprentice)</option>
             <option value="B">Barista</option>
             <option value="MB">Master Barista</option>
             <option value="MB Leader">MB Leader</option>

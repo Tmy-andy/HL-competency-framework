@@ -235,7 +235,7 @@ const AddEmployee = () => {
                   } rounded-lg dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-primary`}
                 >
                   <option value="">Chọn vị trí</option>
-                  <option value="AP">AP (Assistant Manager)</option>
+                  <option value="AP">AP (Apprentice)</option>
                   <option value="B">B (Barista)</option>
                   <option value="MB">MB (Master Barista)</option>
                   <option value="MB Leader">MB Leader</option>

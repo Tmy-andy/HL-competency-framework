@@ -267,7 +267,7 @@ const EditEmployee = () => {
                 } bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:border-transparent transition-all`}
               >
                 <option value="">Chọn vị trí</option>
-                <option value="AP">AP (Assistant Manager)</option>
+                <option value="AP">AP (Apprentice)</option>
                 <option value="B">Barista</option>
                 <option value="MB">Master Barista</option>
                 <option value="MB Leader">MB Leader</option>
